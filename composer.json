@@ -1,0 +1,11 @@
+{
+    "name": "taneikanta/php_tdd",
+    "require": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Taneikanta\\PhpTdd\\": "src/"
+        }
+    }
+}
