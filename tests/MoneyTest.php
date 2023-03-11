@@ -1,6 +1,7 @@
 <?php
 declare(strict_types = 1);
 
+use src\Dollar;
 use PHPUnit\Framework\TestCase;
 
 class MoneyTest extends TestCase
