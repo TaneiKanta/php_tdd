@@ -10,11 +10,11 @@ class Dollar
 
   public function __construct(int $amount)
   {
-//    $this->amount = $amount;
+    $this->amount = $amount;
   }
 
   public function times(int $multiplier): void
   {
-    $this->amount = 5 * 2;
+    $this->amount *= $multiplier;
   }
 }
