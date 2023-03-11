@@ -6,11 +6,11 @@ namespace src;
 class Dollar
 {
   /** @var int  */
-  public int $amount;
+  public int $amount = 10;
 
   public function __construct(int $amount)
   {
-    $this->amount = $amount;
+//    $this->amount = $amount;
   }
 
   public function times(int $multiplier): void
