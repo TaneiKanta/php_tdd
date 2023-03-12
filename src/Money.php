@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace src;
 
-abstract class Money
+class Money
 {
   /** @var int */
   protected int $amount;
@@ -17,7 +17,10 @@ abstract class Money
     $this->currency = $currency;
   }
 
-  abstract function times(int $multiplier): self;
+  public function times(int $multiplier): self
+  {
+    return new self($this->amount * $multiplier, $this->currency);
+  }
 
   public function currency(): string
   {
@@ -27,16 +30,21 @@ abstract class Money
   public function equals(Money $money): bool
   {
     return $this->amount === $money->amount
-      && get_class($this) === get_class($money);
+      && $this->currency() === $money->currency();
   }
 
-  public static function dollar(int $amount): Dollar
+  public function toString(): string
   {
-    return new Dollar($amount, "USD");
+    return $this->amount . " " . $this->currency;
   }
 
-  public static function franc(int $amount): Franc
+  public static function dollar(int $amount): self
   {
-    return new Franc($amount, "CHF");
+    return new self($amount, "USD");
+  }
+
+  public static function franc(int $amount): self
+  {
+    return new self($amount, "CHF");
   }
 }
