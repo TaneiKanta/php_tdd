@@ -26,8 +26,14 @@ class MoneyTest extends TestCase
 
   public function testFrancMultiplication(): void
   {
-    $five = new Franc(5);
+    $five = Money::franc(5);
     self::assertEquals(Money::franc(10), $five->times(2));
     self::assertEquals(Money::franc(15), $five->times(3));
+  }
+
+  public function testCurrency(): void
+  {
+    self::assertEquals("USD", Money::dollar(1)->currency());
+    self::assertEquals("CHF", Money::franc(1)->currency());
   }
 }
