@@ -22,9 +22,19 @@ class Money implements Expression
     return new self($this->amount * $multiplier, $this->currency);
   }
 
-  public function plus(Money $money): Expression
+  public function plus(Money $addend): Expression
   {
-    return new self($this->amount + $money->amount, $this->currency);
+    return new Sum($this, $addend);
+  }
+
+  public function reduce(string $to): self
+  {
+    return $this;
+  }
+
+  public function amount(): int
+  {
+    return $this->amount;
   }
 
   public function currency(): string
