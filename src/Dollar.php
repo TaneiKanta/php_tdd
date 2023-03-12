@@ -6,7 +6,7 @@ namespace src;
 class Dollar
 {
   /** @var int  */
-  public int $amount;
+  private int $amount;
 
   public function __construct(int $amount)
   {
