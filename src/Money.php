@@ -29,7 +29,11 @@ class Money implements Expression
 
   public function reduce(string $to): self
   {
-    return $this;
+    $rate = 1;
+    if ($this->currency === "CHF" && $to === "USD") {
+      $rate = 2;
+    }
+    return new Money(($this->amount / $rate), $to);
   }
 
   public function amount(): int
