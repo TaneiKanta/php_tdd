@@ -8,3 +8,6 @@
 
 # init composer
 `composer init`
+
+# act phpunit
+`vendor/bin/phpunit tests`
