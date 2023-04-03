@@ -4,6 +4,7 @@ declare(strict_types = 1);
 use src\Money;
 use src\Bank;
 use src\Sum;
+use src\Pair;
 use PHPUnit\Framework\TestCase;
 
 class MoneyTest extends TestCase
@@ -66,8 +67,12 @@ class MoneyTest extends TestCase
     $bank = new Bank();
     $bank->addRate("CHF", "USD", 2);
 
-
     $result = $bank->reduce(Money::franc(2), "USD");
     $this->assertEquals(Money::dollar(1), $result);
+  }
+
+  public function testIdentityRate(): void
+  {
+    $this->assertSame(1, (new Bank())->rate("USD", "USD"));
   }
 }
