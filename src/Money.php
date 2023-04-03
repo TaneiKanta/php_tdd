@@ -54,12 +54,12 @@ class Money implements Expression
     return $this->amount . " " . $this->currency;
   }
 
-  public static function dollar(int $amount): self
+  public static function dollar(int $amount): Expression
   {
     return new self($amount, "USD");
   }
 
-  public static function franc(int $amount): self
+  public static function franc(int $amount): Expression
   {
     return new self($amount, "CHF");
   }
